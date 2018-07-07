@@ -1,16 +1,20 @@
 body {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: minmax(40px, auto);;
     background-color: #1a1a1a;
     font-family: 'Roboto', sans-serif;
     font-size: 16px;
     margin: 0;
     height: 100%;
     width: 100%;
+    z-index: 1;
 }
 
 #title {
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    grid-template-rows: auto;
+    grid-column: 1 / 7;
+    grid-row: 1;
     width: 70%;
     margin: auto;
     padding: 50px;
@@ -23,18 +27,21 @@ body {
 }
 
 #title h1 {
-    grid-column: 1;
+    grid-column: 2;
 }
 
 #title h2 {
-    grid-column: 3 / 7;
+    grid-column: 5 / 7;
 }
 
 #title p {
-
+    grid-row: 2;
+    grid-column: 4 / 5;
 }
 
 #gallery {
+    display: grid;
+    grid-column: 1 / 7;
     width: 82%;
     padding: 20px;
     margin: 30px auto;
@@ -71,4 +78,10 @@ body {
     transition: ease 0.7s;
     transform: scale(1.1);
     cursor: pointer;
+}
+
+£boxoflight {
+    width: 80%;
+    height: auto;
+    margin: auto;
 }

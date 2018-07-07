@@ -15,29 +15,26 @@ $(document).ready(function() {
             // TODO make images appear in reverse order - newest first instead of first first.
             var totalPictures = Object.keys(json.data).length - 1;
             $.each(json.data, function(index, item) {
-                imageIndex.push( '#img' + index);
+                imageIndex.push(index);
                 imageLinks.push(encodeURI(item.link));
             });
-            addByNewest(totalPictures);
-            setImageListeners();
+
+            for (var x in imageLinks) {
+                var column = '.' + col;
+                $(column).append("" +
+                    "<div class='box'>" +
+                    "<img id='img" + imageIndex[x] + "' src='" + imageLinks[totalPictures - x] +"' class='image'/>" +
+                    "</div>");
+                col++;
+                if (col > 3) { col = 1; }
+            }
+
+            $('.image').click(function() {
+                var img = $(this).attr('src');
+                console.log(img);
+                $('#boxoflight').append("<img class='' src='" + img +"'>");
+                $('#boxoflight').show();
+            });
         }
     });
 });
-
-function addByNewest(totalPictures) {
-    for (var x in imageLinks) {
-        var column = '.' + col;
-        $(column).append(function() {
-            return "<div class='box' id='img" + imageIndex[x] + "'><img src='" + imageLinks[totalPictures - x] +"'/></div>"
-        });
-        col++;
-        if (col > 3) { col = 1; }
-    }
-}
-
-function setImageListeners() {
-    $('.box').click(function () {
-        // make lightbox do the thing.
-        console.log('this is image number ' + imageIndex[this.id]);
-    });
-}
