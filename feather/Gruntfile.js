@@ -107,7 +107,7 @@ module.exports = function(grunt) {
 				]
 			},
 			min: {
-				src: ['src/index.html', 'src/gallery.html'],
+				src: ['src/home.html', 'src/gallery.html'],
 				dest: './',
 				replacements: [
 					{

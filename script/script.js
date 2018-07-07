@@ -1,4 +1,6 @@
 var col = 1;
+var imageIndex = [];
+var imageLinks = [];
 
 $(document).ready(function() {
     $.ajax({
@@ -10,22 +12,32 @@ $(document).ready(function() {
         },
         success: function(data) {
             var json = JSON.parse(data);
-            var reverse = Object.keys(json.data).length;
+            // TODO make images appear in reverse order - newest first instead of first first.
+            var totalPictures = Object.keys(json.data).length - 1;
             $.each(json.data, function(index, item) {
-                var column = '.' + col;
-                console.log(index);
-                var image = encodeURI(item.link);
-                $(column).append(function() {
-                    return "<div class='box' id='img" + index + "'><img src='" + image +"'/></div>"
-                    // return "<div class='box' style='background: url(" + image + ");'></div>";
-                    // return "<div class=\"box\"><img src=\"" + item.link + "\"/></div>";
-                });
-                col++;
-                if (col > 3) {
-                    col = 1;
-                }
-                $('#img' + index).attr('background-image', image);
+                imageIndex.push( '#img' + index);
+                imageLinks.push(encodeURI(item.link));
             });
+            addByNewest(totalPictures);
+            setImageListeners();
         }
     });
 });
+
+function addByNewest(totalPictures) {
+    for (var x in imageLinks) {
+        var column = '.' + col;
+        $(column).append(function() {
+            return "<div class='box' id='img" + imageIndex[x] + "'><img src='" + imageLinks[totalPictures - x] +"'/></div>"
+        });
+        col++;
+        if (col > 3) { col = 1; }
+    }
+}
+
+function setImageListeners() {
+    $('.box').click(function () {
+        // make lightbox do the thing.
+        console.log('this is image number ' + imageIndex[this.id]);
+    });
+}

@@ -52,7 +52,7 @@ body {
 }
 
 .box {
-    margin-bottom: 5%;
+    margin-bottom: 6%;
     width: 100%;
     box-shadow: 0 5px 5px black;
     overflow: hidden;
@@ -70,4 +70,5 @@ body {
     filter: brightness(110%) grayscale(0);
     transition: ease 0.7s;
     transform: scale(1.1);
+    cursor: pointer;
 }
