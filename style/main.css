@@ -8,7 +8,6 @@ body {
     margin: 0;
     height: 100%;
     width: 100%;
-    z-index: 1;
 }
 
 #title {
@@ -27,10 +26,13 @@ body {
 }
 
 #title h1 {
+    font-size: 22px;
     grid-column: 2;
 }
 
 #title h2 {
+    margin-top: 19px;
+    font-size: 20px;
     grid-column: 5 / 7;
 }
 
@@ -67,21 +69,68 @@ body {
 
 .box img {
     -webkit-transform: translate3d(0, 0, 0);
-    filter: brightness(70%) grayscale(40%);
+    filter: brightness(90%) grayscale(0%);
     width: 100%;
     vertical-align: middle;
     transition: ease 0.7s;
 }
 
 .box img:hover {
-    filter: brightness(110%) grayscale(0);
+    filter: brightness(105%) grayscale(0);
     transition: ease 0.7s;
     transform: scale(1.1);
     cursor: pointer;
 }
 
-£boxoflight {
-    width: 80%;
-    height: auto;
+#boxoflight {
+    -webkit-transform: translate3d(0, 0, 0);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     margin: auto;
+    background: rgba(0, 0, 0, 0.6);
+    transition: ease 0.6s;
+}
+
+#boxoflight:hover {
+    cursor: pointer;
+}
+
+#boxoflight img {
+    display: block;
+    height: 90%;
+    width: auto;
+    margin: 1% auto;
+    margin-top: 0;
+    max-width: 90%;
+    max-height: 90%;
+    transition: ease 0.6s;
+    box-shadow: 0 8px 20px 5px #080808;
+}
+
+#boxoflight p {
+    width: 100%;
+    text-align: center;
+    top: 2%;
+    margin-bottom: 0;
+}
+
+#insta, #insta img {
+    filter: brightness(95%) grayscale(30%);
+    transition: ease 0.6s;
+    display: block;
+    position: fixed;
+    top: 50%;
+    right: 3%;
+    width: 40px;
+    height: 40px;
+    max-height: 6%;
+    max-width: 3%;
+}
+
+#insta:hover, #insta img:hover {
+    filter: brightness(110%) grayscale(0%);
+    transition: ease 0.6s;
 }

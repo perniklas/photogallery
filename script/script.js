@@ -3,6 +3,7 @@ var imageIndex = [];
 var imageLinks = [];
 
 $(document).ready(function() {
+    $('#boxoflight').hide();
     $.ajax({
         type: 'GET',
         url: 'https://api.imgur.com/3/album/cXUGL0p/images',
@@ -31,9 +32,15 @@ $(document).ready(function() {
 
             $('.image').click(function() {
                 var img = $(this).attr('src');
-                console.log(img);
-                $('#boxoflight').append("<img class='' src='" + img +"'>");
+                $('#boxoflight').append("<img src='" + img +"'>");
                 $('#boxoflight').show();
+                $('#some').fadeOut();
+
+                $('#boxoflight').click(function() {
+                    $('#boxoflight').hide();
+                    $('#some').fadeIn();
+                    $('#boxoflight img').remove();
+                });
             });
         }
     });
