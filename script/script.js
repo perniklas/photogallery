@@ -1,9 +1,15 @@
+/**
+ * @author Per-Niklas Longberg
+ *
+ * JS/jQuery to dynamically populate image grid from a private Imgur album that I upload my photographs to.
+ */
+
 var col = 1;
 var imageIndex = [];
 var imageLinks = [];
 
 $(document).ready(function() {
-    $('#boxoflight').hide();
+    $('#lightbox').hide();
     $.ajax({
         type: 'GET',
         url: 'https://api.imgur.com/3/album/cXUGL0p/images',
@@ -32,14 +38,14 @@ $(document).ready(function() {
 
             $('.image').click(function() {
                 var img = $(this).attr('src');
-                $('#boxoflight').append("<img src='" + img +"'>");
-                $('#boxoflight').show();
                 $('#some').fadeOut();
+                $('#focus').attr('src', img);
+                $('#lightbox').show();
 
-                $('#boxoflight').click(function() {
-                    $('#boxoflight').hide();
+                $('#lightbox').click(function() {
+                    $('#lightbox').hide();
                     $('#some').fadeIn();
-                    $('#boxoflight img').remove();
+                    $('#focus').attr('src', ' ');
                 });
             });
         }

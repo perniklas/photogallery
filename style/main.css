@@ -1,3 +1,5 @@
+/* @author Per-Niklas Longberg */
+
 body {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
@@ -9,6 +11,8 @@ body {
     height: 100%;
     width: 100%;
 }
+
+/************************ Title ************************/
 
 #title {
     display: grid;
@@ -41,7 +45,10 @@ body {
     grid-column: 4 / 5;
 }
 
+/************************ Gallery image grid ************************/
+
 #gallery {
+    transition: ease 0.7s;
     display: grid;
     grid-column: 1 / 7;
     width: 82%;
@@ -50,17 +57,20 @@ body {
 }
 
 .row {
+    transition: ease 0.7s;
     display: flex;
     flex-wrap: wrap;
     padding: 0 1%;
 }
 
 .column {
+    transition: ease 0.7s;
     flex: 31%;
     padding: 0 1%;
 }
 
 .box {
+    transition: ease 0.7s;
     margin-bottom: 6%;
     width: 100%;
     box-shadow: 0 5px 5px black;
@@ -82,8 +92,11 @@ body {
     cursor: pointer;
 }
 
-#boxoflight {
-    -webkit-transform: translate3d(0, 0, 0);
+/************************ Lightbox ************************/
+
+#lightbox {
+    transition: ease 0.7s;
+    display: block;
     position: fixed;
     top: 0;
     left: 0;
@@ -91,14 +104,14 @@ body {
     height: 100%;
     margin: auto;
     background: rgba(0, 0, 0, 0.6);
-    transition: ease 0.6s;
 }
 
-#boxoflight:hover {
+#lightbox:hover {
     cursor: pointer;
 }
 
-#boxoflight img {
+#lightbox img {
+    transition: ease 0.7s;
     display: block;
     height: 90%;
     width: auto;
@@ -106,16 +119,18 @@ body {
     margin-top: 0;
     max-width: 90%;
     max-height: 90%;
-    transition: ease 0.6s;
     box-shadow: 0 8px 20px 5px #080808;
 }
 
-#boxoflight p {
+#lightbox p {
+    transition: ease 0.7s;
     width: 100%;
     text-align: center;
     top: 2%;
     margin-bottom: 0;
 }
+
+/************************ Social media links ************************/
 
 #insta, #insta img {
     filter: brightness(95%) grayscale(30%);
@@ -126,11 +141,67 @@ body {
     right: 3%;
     width: 40px;
     height: 40px;
-    max-height: 6%;
-    max-width: 3%;
+    max-height: 50px;
+    max-width: 50px;
 }
 
 #insta:hover, #insta img:hover {
     filter: brightness(110%) grayscale(0%);
     transition: ease 0.6s;
+}
+
+/************************ Phones ************************/
+
+@media only screen and (max-width: 481px) {
+    body, #title {
+        display: block;
+        transition: ease 0.7s;
+    }
+
+    #title {
+        margin: 5px auto;
+        margin-bottom: 35px;
+    }
+
+    #title h1, h2, p {
+        margin: 2px;
+        height: auto;
+    }
+
+    #title h2 {
+        font-size: 13px;
+    }
+
+    #insta, #insta img {
+        top: 6%;
+        right: 5%;
+        max-height: 35px;
+        max-width: 35px;
+        filter: brightness(100%) grayscale(0%);
+    }
+
+    #gallery {
+        transition: ease 0.7s;
+        width: 100%;
+        margin: 30px 0;
+        padding: 0;
+    }
+
+    .row {
+        transition: ease 0.7s;
+        margin: 0;
+        padding: 0;
+    }
+
+    .box {
+        transition: ease 0.7s;
+        margin: 0;
+        margin-bottom: 6%;
+    }
+
+    #lightbox img {
+        width: 100%;
+        height: auto;
+        max-height: 600px;
+    }
 }
