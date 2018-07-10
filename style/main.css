@@ -1,9 +1,6 @@
 /* @author Per-Niklas Longberg */
 
 body {
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    grid-template-rows: minmax(40px, auto);;
     background-color: #1a1a1a;
     font-family: 'Roboto', sans-serif;
     font-size: 16px;
@@ -16,44 +13,71 @@ body {
 
 #title {
     display: grid;
-    grid-column: 1 / 7;
     grid-row: 1;
     width: 70%;
     margin: auto;
     padding: 50px;
     height: 35px;
+    justify-content: space-evenly;
 }
 
 #title h1, h2, p {
+    margin: 5px;
     color: white;
     height: 35px;
 }
 
 #title h1 {
+    margin-top: 17px;
     font-size: 22px;
-    grid-column: 2;
+    grid-column: 1;
 }
 
 #title h2 {
+    text-align: right;
     margin-top: 19px;
     font-size: 20px;
-    grid-column: 5 / 7;
+    grid-column: 2;
 }
 
-#title p {
-    grid-row: 2;
-    grid-column: 4 / 5;
+/************************ Navigation ************************/
+
+#navbar {
+    display: flex;
+    align-content: space-evenly;
+    width: 70%;
+    margin: 20px auto;
+}
+
+#navbar p {
+    transition: ease 0.7s;
+    text-align: center;
+    padding: 15px 20px;
+    padding-bottom: 0;
+    margin: 2%;
+    width: 15%;
+    color: white;
+    font-weight: bold;
+    background-color: #383838;
+    border-radius: 3px;
+    box-shadow: 0 1px 1px 1px black;
+}
+
+#navbar p:hover {
+    transition: ease 0.7s;
+    background-color: #D3D3D3;
+    color: black;
+    font-weight: bolder;
+    cursor: pointer;
 }
 
 /************************ Gallery image grid ************************/
 
 #gallery {
     transition: ease 0.7s;
-    display: grid;
-    grid-column: 1 / 7;
     width: 82%;
     padding: 20px;
-    margin: 30px auto;
+    margin: 60px auto;
 }
 
 .row {
@@ -113,13 +137,15 @@ body {
 #lightbox img {
     transition: ease 0.7s;
     display: block;
+    position: fixed;
+    top: 50%;
+    left: 50%;
     height: 90%;
     width: auto;
-    margin: 1% auto;
-    margin-top: 0;
     max-width: 90%;
     max-height: 90%;
     box-shadow: 0 8px 20px 5px #080808;
+    transform: translate(-50%, -50%);
 }
 
 #lightbox p {
@@ -158,6 +184,8 @@ body {
         transition: ease 0.7s;
     }
 
+    /********************** Title **********************/
+
     #title {
         margin: 5px auto;
         margin-bottom: 35px;
@@ -172,13 +200,7 @@ body {
         font-size: 13px;
     }
 
-    #insta, #insta img {
-        top: 6%;
-        right: 5%;
-        max-height: 35px;
-        max-width: 35px;
-        filter: brightness(100%) grayscale(0%);
-    }
+    /********************** Image gallery **********************/
 
     #gallery {
         transition: ease 0.7s;
@@ -199,9 +221,75 @@ body {
         margin-bottom: 6%;
     }
 
+    .box img {
+        filter: brightness(100%) grayscale(0%);
+    }
+
+    .box img:hover {
+        filter: brightness(100%) grayscale(0%);
+    }
+
+    /********************** Lightbox **********************/
+
     #lightbox img {
         width: 100%;
         height: auto;
         max-height: 600px;
     }
+
+    /********************** Social media **********************/
+
+    #insta, #insta img {
+        top: 6%;
+        right: 5%;
+        max-height: 35px;
+        max-width: 35px;
+        filter: brightness(100%) grayscale(0%);
+    }
 }
+
+/*
+#navbar {
+    background-color: #00897b;
+    width: 100%;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    background: #26a69a;
+}
+
+nav a, nav p {
+    display: block;
+    padding: 10px 14px;
+    line-height: 1.2em;
+    color: white;
+    text-decoration: none;
+    transition: all 200ms ease-in;
+}
+
+nav p {
+    margin: 0;
+    cursor: default;
+    background-image: url(../img/menu2.png);
+    background-size: 25px;
+    background-repeat: no-repeat;
+    background-position: 98.5% 50%;
+}
+
+#navlist{
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 400ms ease-in-out;
+}
+
+nav ul li a:hover, header h1:hover {
+    background-color: #004d40;
+}
+
+#navbar:hover #navlist, #navlist:hover {
+    max-height: 300px;
+}
+ */
