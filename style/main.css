@@ -44,31 +44,36 @@ body {
 
 #navbar {
     display: flex;
+    width: 50%;
     align-content: space-evenly;
-    width: 70%;
-    margin: 20px auto;
+    margin: 30px auto;
 }
 
-#navbar p {
+#catgAll, #catgLand, #catgPort, #catgStreet {
     transition: ease 0.7s;
-    text-align: center;
-    padding: 15px 20px;
-    padding-bottom: 0;
-    margin: 2%;
-    width: 15%;
+    width: fit-content;
     color: white;
     font-weight: bold;
     background-color: #383838;
     border-radius: 3px;
     box-shadow: 0 1px 1px 1px black;
+    padding: 13px 25px;
+    margin: 10px auto;
 }
 
-#navbar p:hover {
+#catgAll:hover, #catgLand:hover, #catgPort:hover, #catgStreet:hover  {
     transition: ease 0.7s;
     background-color: #D3D3D3;
     color: black;
     font-weight: bolder;
     cursor: pointer;
+}
+
+.pressed {
+    transition: ease 0.7s;
+    background-color: #D3D3D3;
+    color: black;
+    box-shadow: 0 1px 1px 1px black;
 }
 
 /************************ Gallery image grid ************************/
@@ -198,6 +203,21 @@ body {
 
     #title h2 {
         font-size: 13px;
+    }
+
+    /********************** Navigation **********************/
+
+    #navbar {
+        width: 90%;
+        margin: 30px 0;
+    }
+
+    #catgAll, #catgLand, #catgPort, #catgStreet {
+        width: 80%;
+        font-weight: bold;
+        font-size: 1em;
+        padding: 13px 25px;
+        margin: 10px 0;
     }
 
     /********************** Image gallery **********************/

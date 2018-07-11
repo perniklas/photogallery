@@ -12,12 +12,21 @@ var category = {
     'portrait': [],
     'street': []
 };
+var headers = {
+    'all': "and this is both web development practice as well as a gallery of photographs that I've " +
+    "gone and done.",
+    'landscape': 'and here are some landscapes for you to enjoy, you\'re very welcome.',
+    'portrait': 'and these are some people that I know (and a cat).',
+    'street': 'and you\'re looking at some streets and buildings I\'ve photographed.'
+}
 
 /**
  * Page initializes (unless you're edgy and have disabled javascript).
  */
 $(document).ready(function() {
     $('#lightbox').hide();
+    $('#description').text("and this is both web development practice as well as a gallery of photographs that I've " +
+        "gone and done.");
 
     /**
      * HTTP request to get the JSON with the links to the images from Imgur.
@@ -50,23 +59,26 @@ $(document).ready(function() {
 
             $('#catgAll').click(function () {
                 $('.box').remove();
+                $('#description').text(headers.all);
                 updateGallery(imageLinks);
             });
 
             $('#catgLand').click(function () {
                 $('.box').remove();
-                console.log(category.landscape);
+                $('#description').text(headers.landscape);
                 updateGallery(category.landscape);
             });
 
             $('#catgPort').click(function () {
                 $('.box').remove();
-                console.log(category.portrait);
+                $('#description').text(headers.portrait);
                 updateGallery(category.portrait);
             });
 
             $('#catgStreet').click(function () {
                 $('.box').remove();
+                $('#catgStreet').addClass('pressed');
+                $('#description').text(headers.street);
                 updateGallery(category.street);
             });
         }
