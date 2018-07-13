@@ -15,3 +15,5 @@ TODO
 * Misc
   * Make buttons indicate which images are shown (.css(...) doesn't work)
   * Add info ?
+  * Fix button sizing on small screens (maybe drop down menu)
+  * Add support for various browsers
