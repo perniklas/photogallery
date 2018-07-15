@@ -51,6 +51,7 @@ $(document).ready(function() {
                 imageLinks.push(encodeURI(item.link));
                 category[item.description].push(item.link);
             });
+            $('#catgAll').addClass('pressed');
             updateGallery(imageLinks);
 
             /**
@@ -59,24 +60,31 @@ $(document).ready(function() {
 
             $('#catgAll').click(function () {
                 $('.box').remove();
+                $('.catgButton').removeClass('pressed');
+                $('#catgAll').addClass('pressed');
                 $('#description').text(headers.all);
                 updateGallery(imageLinks);
             });
 
             $('#catgLand').click(function () {
                 $('.box').remove();
+                $('.catgButton').removeClass('pressed');
+                $('#catgLand').addClass('pressed');
                 $('#description').text(headers.landscape);
                 updateGallery(category.landscape);
             });
 
             $('#catgPort').click(function () {
                 $('.box').remove();
+                $('.catgButton').removeClass('pressed');
+                $('#catgPort').addClass('pressed');
                 $('#description').text(headers.portrait);
                 updateGallery(category.portrait);
             });
 
             $('#catgStreet').click(function () {
                 $('.box').remove();
+                $('.catgButton').removeClass('pressed');
                 $('#catgStreet').addClass('pressed');
                 $('#description').text(headers.street);
                 updateGallery(category.street);
@@ -109,9 +117,10 @@ function updateGallery(listOfImages) {
 
 function triggerLightbox() {
     $('.image').click(function () {
-        var img = $(this).attr('src');
-        $('#some').fadeOut();
-        $('#focus').attr('src', img);
+        console.log();
+        $('#some').hide();
+        $('#focus').attr('src', $(this).attr('src'));
+        $('#main').css('overflow', 'hidden');
         $('#lightbox').show();
 
         /**
@@ -120,7 +129,15 @@ function triggerLightbox() {
         $('#lightbox').click(function () {
             $('#lightbox').hide();
             $('#some').fadeIn();
+            $('#main').css('overflow', 'auto');
             $('#focus').attr('src', ' ');
+        });
+
+        /**
+         * On click listener for arrow keys - right for next, left for previous
+         */
+        $('#lightbox').keydown(function(key) {
+            console.log(key);
         });
     });
 }

@@ -49,7 +49,7 @@ body {
     margin: 30px auto;
 }
 
-#catgAll, #catgLand, #catgPort, #catgStreet {
+.catgButton {
     transition: ease 0.7s;
     width: fit-content;
     color: white;
@@ -61,7 +61,7 @@ body {
     margin: 10px auto;
 }
 
-#catgAll:hover, #catgLand:hover, #catgPort:hover, #catgStreet:hover  {
+.catgButton:hover  {
     transition: ease 0.7s;
     background-color: #D3D3D3;
     color: black;
@@ -71,8 +71,8 @@ body {
 
 .pressed {
     transition: ease 0.7s;
-    background-color: #D3D3D3;
-    color: black;
+    background-color: #B23502;
+    color: white;
     box-shadow: 0 1px 1px 1px black;
 }
 
@@ -139,27 +139,48 @@ body {
     cursor: pointer;
 }
 
-#lightbox img {
+#focus {
     transition: ease 0.7s;
     display: block;
     position: fixed;
     top: 50%;
     left: 50%;
-    height: 90%;
-    width: auto;
     max-width: 90%;
     max-height: 90%;
+    width: auto;
     box-shadow: 0 8px 20px 5px #080808;
     transform: translate(-50%, -50%);
 }
 
 #lightbox p {
+    position: fixed;
     transition: ease 0.7s;
     width: 100%;
     text-align: center;
-    top: 2%;
+    top: 1.25%;
     margin-bottom: 0;
 }
+
+.direction {
+    position: absolute;
+    width: 20px;
+    height: 60px;
+    box-shadow: none;
+    transform: none;
+    display: none; /* DISABLED WHILE IN DEVELOPMENT */
+}
+
+#left {
+    left: 2.5%;
+    vertical-align: center;
+}
+
+#right {
+    right: 2.5%;
+    vertical-align: center;
+}
+
+
 
 /************************ Social media links ************************/
 
@@ -183,7 +204,7 @@ body {
 
 /************************ Phones ************************/
 
-@media only screen and (max-width: 481px) {
+@media only screen and (max-width: 500px) {
     body, #title {
         display: block;
         transition: ease 0.7s;
@@ -208,16 +229,23 @@ body {
     /********************** Navigation **********************/
 
     #navbar {
-        width: 90%;
+        width: 100%;
         margin: 30px 0;
     }
 
-    #catgAll, #catgLand, #catgPort, #catgStreet {
-        width: 80%;
+    .catgButton {
+        text-align: center;
+        width: 100%;
+        padding: 10px;
+        margin: 20px 1.75%;
         font-weight: bold;
         font-size: 1em;
-        padding: 13px 25px;
-        margin: 10px 0;
+    }
+
+    .catgButton:hover {
+        transition: ease 0.7s;
+        background-color: #B23502;
+        color: white;
     }
 
     /********************** Image gallery **********************/
@@ -247,6 +275,7 @@ body {
 
     .box img:hover {
         filter: brightness(100%) grayscale(0%);
+        transform: none;
     }
 
     /********************** Lightbox **********************/
@@ -256,6 +285,8 @@ body {
         height: auto;
         max-height: 600px;
     }
+
+
 
     /********************** Social media **********************/
 

@@ -12,16 +12,16 @@
     <script type="text/javascript" src="script/script.js"></script>
     <title>p e p e r e</title>
 </head>
-<body>
+<body id="main">
     <section id="title">
         <h1>I am Per</h1>
         <h2 id="description">and either you've disabled javascript or something failed to load.</h2>
     </section>
     <nav id="navbar">
-        <div id="catgAll">All</div>
-        <div id="catgLand">Landscapes</div>
-        <div id="catgPort">Portraits</div>
-        <div id="catgStreet">Streets</div>
+        <div class="catgButton" id="catgAll">All</div>
+        <div class="catgButton" id="catgLand">Landscapes</div>
+        <div class="catgButton" id="catgPort">Portraits</div>
+        <div class="catgButton" id="catgStreet">Streets</div>
     </nav>
     <section id="gallery">
         <div class="row">
@@ -31,7 +31,9 @@
         </div>
         <div id='lightbox'>
             <p>Click anywhere to close.</p>
-            <img id="focus">
+            <img id="focus"/>
+            <img class="direction" id="left" src="img/left.png"/>
+            <img class="direction" id="right" src="img/right.png"/>
         </div>
     </section>
     <section id="some">
