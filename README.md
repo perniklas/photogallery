@@ -13,6 +13,7 @@ TODO
 * Navigation
   * Fix navigation buttons on screen less than 320 width
   * Work out a better method of differentiationg between touch/mouse (tablets now act as computers, makes for some kinks in button styling)
+  * Fix style on mobile landscape (nav buttons mushed together)
 * Misc
   * Make buttons indicate which images are shown (.css(...) doesn't work)
   * Add info
