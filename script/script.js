@@ -24,7 +24,6 @@ var headers = {
  * Page initializes (unless you're edgy and have disabled javascript).
  */
 $(document).ready(function() {
-    $('#lightbox').hide();
     $('#description').text("and this is both web development practice as well as a gallery of photographs that I've " +
         "gone and done.");
 
@@ -40,9 +39,6 @@ $(document).ready(function() {
         },
         success: function (data) {
             var json = JSON.parse(data);
-            // TODO make images appear in reverse order - newest first instead of first first.
-            var totalPictures = Object.keys(json.data).length - 1;
-
             /**
              * Stores the image links, categories and image indexes for use in populating HTML
              */
@@ -51,44 +47,9 @@ $(document).ready(function() {
                 imageLinks.push(encodeURI(item.link));
                 category[item.description].push(item.link);
             });
-            $('#catgAll').addClass('pressed');
+            $('#catgAll').addClass('pressed'); // On ready, the first category presented is All.
             updateGallery(imageLinks);
-
-            /**
-             * On click listener for the images - opens up the lightbox with the clicked image
-             */
-
-            $('#catgAll').click(function () {
-                $('.box').remove();
-                $('.catgButton').removeClass('pressed');
-                $('#catgAll').addClass('pressed');
-                $('#description').text(headers.all);
-                updateGallery(imageLinks);
-            });
-
-            $('#catgLand').click(function () {
-                $('.box').remove();
-                $('.catgButton').removeClass('pressed');
-                $('#catgLand').addClass('pressed');
-                $('#description').text(headers.landscape);
-                updateGallery(category.landscape);
-            });
-
-            $('#catgPort').click(function () {
-                $('.box').remove();
-                $('.catgButton').removeClass('pressed');
-                $('#catgPort').addClass('pressed');
-                $('#description').text(headers.portrait);
-                updateGallery(category.portrait);
-            });
-
-            $('#catgStreet').click(function () {
-                $('.box').remove();
-                $('.catgButton').removeClass('pressed');
-                $('#catgStreet').addClass('pressed');
-                $('#description').text(headers.street);
-                updateGallery(category.street);
-            });
+            categoryClickListener();
         }
     });
 });
@@ -112,10 +73,14 @@ function updateGallery(listOfImages) {
             col = 1;
         }
     }
-    triggerLightbox();
+    categoryClickListener();
+    lightboxClickListener();
 }
 
-function triggerLightbox() {
+/**
+ * In case the user clicks an image - listen for the click and enable lightbox with clicked image if click.
+ */
+function lightboxClickListener() {
     $('.image').click(function () {
         console.log();
         $('#some').hide();
@@ -139,5 +104,39 @@ function triggerLightbox() {
         $('#lightbox').keydown(function(key) {
             console.log(key);
         });
+    });
+}
+
+function categoryClickListener() {
+    $('#catgAll').click(function () {
+        $('.box').remove();
+        $('.catgButton').removeClass('pressed');
+        $('#catgAll').addClass('pressed');
+        $('#description').text(headers.all);
+        updateGallery(imageLinks);
+    });
+
+    $('#catgLand').click(function () {
+        $('.box').remove();
+        $('.catgButton').removeClass('pressed');
+        $('#catgLand').addClass('pressed');
+        $('#description').text(headers.landscape);
+        updateGallery(category.landscape);
+    });
+
+    $('#catgPort').click(function () {
+        $('.box').remove();
+        $('.catgButton').removeClass('pressed');
+        $('#catgPort').addClass('pressed');
+        $('#description').text(headers.portrait);
+        updateGallery(category.portrait);
+    });
+
+    $('#catgStreet').click(function () {
+        $('.box').remove();
+        $('.catgButton').removeClass('pressed');
+        $('#catgStreet').addClass('pressed');
+        $('#description').text(headers.street);
+        updateGallery(category.street);
     });
 }
