@@ -7,13 +7,16 @@ I wanted to do some more web development as well as make my own gallery, so here
 
 TODO
 * Lightbox
-  * Change from hiding lightbox overlay on load to it being hidden by default
-  * Figure out why animations aren't functioning
+  * Figure out why animations aren't working (stuttery af)
 * Grid
   * Add height check for jQuery to not paste all vertical images in one column
-  * Remove hover effects on mobile
+* Navigation
+  * Fix navigation buttons on screen less than 320 width
+  * Work out a better method of differentiationg between touch/mouse (tablets now act as computers, makes for some kinks in button styling)
+  * Fix style on mobile landscape (nav buttons mushed together)
 * Misc
   * Make buttons indicate which images are shown (.css(...) doesn't work)
-  * Add info ?
-  * Fix button sizing on small screens (maybe drop down menu)
+  * Add info
+    * Cameras
+    * About me? (so self-centered)
   * Add support for various browsers
