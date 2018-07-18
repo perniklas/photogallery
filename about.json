@@ -1,0 +1,15 @@
+{
+  "about" : {
+    "me" : "I'm a late twenty something dude with a passion for photography burning almost as bright as a tea candle. I'm currently doing my masters in Information Science at University of Bergen. All images on this website are taken and post-processed by me.",
+    "website" : "I originally intended to make this website as practice for implementing various third-party tools but somewhere along the way things got out of hand and I've made everything you see from scratch. The web page relies heavily on JavaScript with a dab of jQuery mixed in, the rest is made up from HTML5, CSS3 and some JSON that helps keep the content uncluttered.",
+    "cameras" : {
+      "description" : "I've used a few cameras over the years - my main camera right now is the A6000 with a stock lens (although some images have different lenses lent to me by my good friend. I had an RX100 a while ago that worked fine, but the lack of interchangeable lenses pushed me to get the A6000. Sometimes I just grab whatever cell phone I possess at the given point of time.",
+      "cams" : {
+        "sonya6000" : "Sony A6000",
+        "sonyrx100" : "Sony CyberShot RX100 mk1",
+        "nokia" : "Nokia 7 Plus",
+        "iphone" : "Apple iPhone 7 Plus"
+      }
+    }
+  }
+}

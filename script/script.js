@@ -4,28 +4,30 @@
  * JS/jQuery to dynamically populate image grid from a private Imgur album that I upload my photographs to.
  */
 
-var albumURL = '';
-var imageIndex = [];
-var imageLinks = [];
+var imageIndex = [],
+    imageLinks = [];
+
 var category = {
+    'all': imageLinks,
     'landscape': [],
     'portrait': [],
     'street': []
-};
-var headers = {
+},
+headers = {
     'all': "and this is both web development practice as well as a gallery of photographs that I've " +
     "gone and done.",
     'landscape': 'and here are some landscapes for you to enjoy, you\'re very welcome.',
     'portrait': 'and these are some people that I know (and a cat).',
-    'street': 'and you\'re looking at some streets and buildings I\'ve photographed.'
-}
+    'street': 'and you\'re looking at some streets and buildings I\'ve photographed.',
+    'about': 'and this should answer some questions. I hope.'
+};
+
 
 /**
  * Page initializes (unless you're edgy and have disabled javascript).
  */
 $(document).ready(function() {
-    $('#description').text("and this is both web development practice as well as a gallery of photographs that I've " +
-        "gone and done.");
+    $('#description').text(headers.all);
 
     /**
      * HTTP request to get the JSON with the links to the images from Imgur.
@@ -43,13 +45,14 @@ $(document).ready(function() {
              * Stores the image links, categories and image indexes for use in populating HTML
              */
             $.each(json.data, function (index, item) {
-                imageIndex.push(index);
-                imageLinks.push(encodeURI(item.link));
-                category[item.description].push(item.link);
+                if (item != null && item !== undefined) {
+                    imageIndex.push(index);
+                    imageLinks.push(encodeURI(item.link));
+                    category[item.description].push(item.link);
+                }
             });
-            $('#catgAll').addClass('pressed'); // On ready, the first category presented is All.
+            $('#all').addClass('pressed'); // On ready, the first category presented is All.
             updateGallery(imageLinks);
-            categoryClickListener();
         }
     });
 });
@@ -61,7 +64,7 @@ $(document).ready(function() {
  * An array containing image links.
  */
 function updateGallery(listOfImages) {
-    col = 1;
+    var col = 1;
     for (var x in listOfImages) {
         var column = '.' + col;
         $(column).append("" +
@@ -73,7 +76,7 @@ function updateGallery(listOfImages) {
             col = 1;
         }
     }
-    categoryClickListener();
+    buttonClickListener();
     lightboxClickListener();
 }
 
@@ -82,7 +85,6 @@ function updateGallery(listOfImages) {
  */
 function lightboxClickListener() {
     $('.image').click(function () {
-        console.log();
         $('#some').hide();
         $('#focus').attr('src', $(this).attr('src'));
         $('#main').css('overflow', 'hidden');
@@ -107,36 +109,36 @@ function lightboxClickListener() {
     });
 }
 
-function categoryClickListener() {
-    $('#catgAll').click(function () {
-        $('.box').remove();
-        $('.catgButton').removeClass('pressed');
-        $('#catgAll').addClass('pressed');
-        $('#description').text(headers.all);
-        updateGallery(imageLinks);
+function buttonClickListener() {
+    $('.catgButton').click(function () {
+        updateContentOnClick(this)
     });
 
-    $('#catgLand').click(function () {
-        $('.box').remove();
-        $('.catgButton').removeClass('pressed');
-        $('#catgLand').addClass('pressed');
-        $('#description').text(headers.landscape);
-        updateGallery(category.landscape);
+    $('#about').click(function () {
+        updateContentOnClick(this)
     });
 
-    $('#catgPort').click(function () {
-        $('.box').remove();
-        $('.catgButton').removeClass('pressed');
-        $('#catgPort').addClass('pressed');
-        $('#description').text(headers.portrait);
-        updateGallery(category.portrait);
-    });
+    function updateContentOnClick(clickedItem) {
+        if (!clickedItem.classList.contains('pressed')) {
+            $('.box').remove();
+            $('.aboutText').remove();
+            $('.catgButton, #about').removeClass('pressed');
+            $(clickedItem).addClass('pressed');
+            $('#description').text(headers[clickedItem.id]);
+            if(clickedItem.id === "about") {
+                $.getJSON('../about.json', function(data) {
+                    $.each(data, function(item) {
+                        
+                    });
+                });
+            } else {
+                updateGallery(category[clickedItem.id]);
+            }
+        }
+    }
+}
 
-    $('#catgStreet').click(function () {
-        $('.box').remove();
-        $('.catgButton').removeClass('pressed');
-        $('#catgStreet').addClass('pressed');
-        $('#description').text(headers.street);
-        updateGallery(category.street);
-    });
+function formatJSONtoHTML(json) {
+    var camList = [];
+
 }
