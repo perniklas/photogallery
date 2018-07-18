@@ -7,7 +7,7 @@ I wanted to do some more web development as well as make my own gallery, so here
 
 TODO
 * Lightbox
-  * Figure out why animations aren't working (stuttery af)
+  * Figure out why animations aren't working (stuttery as heck)
 * Grid
   * Add height check for jQuery to not paste all vertical images in one column
 * Navigation
@@ -15,8 +15,4 @@ TODO
   * Work out a better method of differentiationg between touch/mouse (tablets now act as computers, makes for some kinks in button styling)
   * Fix style on mobile landscape (nav buttons mushed together)
 * Misc
-  * Make buttons indicate which images are shown (.css(...) doesn't work)
-  * Add info
-    * Cameras
-    * About me? (so self-centered)
   * Add support for various browsers
