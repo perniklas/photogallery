@@ -127,9 +127,7 @@ function buttonClickListener() {
             $('#description').text(headers[clickedItem.id]);
             if(clickedItem.id === "about") {
                 $.getJSON('../about.json', function(data) {
-                    $.each(data, function(item) {
-                        
-                    });
+                    someoneClickedAbout(formatJSONtoHTML(data));
                 });
             } else {
                 updateGallery(category[clickedItem.id]);
@@ -139,6 +137,35 @@ function buttonClickListener() {
 }
 
 function formatJSONtoHTML(json) {
-    var camList = [];
 
+    var strings = [];
+    var camList = [
+        '<ul class="aboutText">Cameras'
+    ];
+    getStrings(json);
+
+    function getStrings(json) {
+        $.each(json, function(item) {
+            if (item === 'cameras') {
+                $.each(json[item], function (camera) {
+                    camList.push('<li>' + json[item][camera] + '</li>');
+                });
+            } else if (typeof json[item] === "object") {
+                // getStrings(json[item]);  TODO make recursiveness work
+                $.each(json[item], function(subitem) {
+                    strings.push('<p class="aboutText">' + json[item][subitem] + '</p>');
+                });
+            }
+        });
+    }
+    camList.push('</ul>');
+
+    return {text: strings.join(""), cameras: camList.join("")}
+}
+
+function someoneClickedAbout(about) {
+    $.each(about, function(item) {
+        console.log(about[item]);
+        $('#gallery').append(about[item]);
+    });
 }
