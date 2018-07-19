@@ -15,4 +15,4 @@ TODO
   * Work out a better method of differentiationg between touch/mouse (tablets now act as computers, makes for some kinks in button styling)
   * Fix style on mobile landscape (nav buttons mushed together)
 * Misc
-  * Add support for various browsers
+  * Add more extensive description check on images (multiple words, no description etc etc)
