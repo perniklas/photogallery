@@ -1,8 +1,8 @@
 {
   "about" : {
     "me" : "I'm a late twenty something dude with a passion for photography burning almost as bright as a tea candle. I'm currently doing my masters in Information Science at University of Bergen. All images on this website are taken and post-processed by me.",
-    "website" : "I originally intended to make this website as practice for implementing various third-party tools but somewhere along the way things got out of hand and I've made everything you see from scratch. The web page relies heavily on JavaScript with a dab of jQuery mixed in, the rest is made up from HTML5, CSS3 and some JSON that helps keep the content uncluttered.",
-    "cameras" : "I've used a few cameras over the years - my main camera right now is the A6000 with a stock lens (although some images have different lenses lent to me by my good friend. I had an RX100 a while ago that worked fine, but the lack of interchangeable lenses pushed me to get the A6000. Sometimes I just grab whatever cell phone I possess at the given point of time."
+    "website" : "This website is made with two intentions in mind - making my own portfolio because I like showing people what I've gone and done so to say, as well as practicing some web development and testing out some ideas I've had for a website. I originally intended to make this website as practice for implementing various third-party tools but somewhere along the way things got out of hand and I've made everything you see from scratch. The web page relies heavily on JavaScript with a dab of jQuery mixed in, the rest is made up from HTML5, CSS3 and some JSON that helps keep the content uncluttered.",
+    "cameras" : "I've used a few cameras over the years - my main camera right now is the A6000 with a stock lens (although some images have different lenses lent to me by my good friend). I had an RX100 a while ago that worked fine, but the lack of interchangeable lenses pushed me to get the A6000. Sometimes I just grab whatever smartphone I possess at the given point of time."
   },
   "cameras" : {
     "sonya6000" : "Sony A6000",

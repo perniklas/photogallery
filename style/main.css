@@ -1,6 +1,11 @@
 /* @author Per-Niklas Longberg */
+html {
+    height: 100%;
+    width: 100%;
+}
 
 body {
+    position: relative;
     background-color: #1a1a1a;
     font-family: 'Roboto', sans-serif;
     font-size: 16px;
@@ -12,11 +17,11 @@ body {
 /************************ Title ************************/
 
 #title {
-
-    width: 80%;
+    position: relative;
+    width: 75%;
     margin: auto;
     padding: 50px 0;
-    height: 35px;
+    height: 45px;
 }
 
 #title h1, h2, p {
@@ -45,8 +50,17 @@ body {
 
 #about {
     clear: both;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
     height: fit-content;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
     width: fit-content;
+    -webkit-transition: ease 0.6s;
+    -o-transition: ease 0.6s;
     transition: ease 0.6s;
     text-align: center;
     padding: 10px;
@@ -55,6 +69,8 @@ body {
 }
 
 #about:hover {
+    -webkit-transition: ease 0.6s;
+    -o-transition: ease 0.6s;
     transition: ease 0.6s;
     background-color: #D3D3D3;
     color: black;
@@ -64,25 +80,35 @@ body {
 /************************ Navigation ************************/
 
 #navbar {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     width: 50%;
+    -ms-flex-line-pack: space-evenly;
     align-content: space-evenly;
     margin: 30px auto;
 }
 
 .catgButton {
+    -webkit-transition: ease 0.7s;
+    -o-transition: ease 0.7s;
     transition: ease 0.7s;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
     width: fit-content;
     color: white;
     font-weight: bold;
     background-color: #383838;
     border-radius: 3px;
+    -webkit-box-shadow: 0 1px 1px 1px black;
     box-shadow: 0 1px 1px 1px black;
     padding: 13px 25px;
     margin: 10px auto;
 }
 
 .catgButton:hover  {
+    -webkit-transition: ease 0.7s;
+    -o-transition: ease 0.7s;
     transition: ease 0.7s;
     background-color: #D3D3D3;
     color: black;
@@ -91,15 +117,20 @@ body {
 }
 
 .pressed {
+    -webkit-transition: ease 0.7s;
+    -o-transition: ease 0.7s;
     transition: ease 0.7s;
     background-color: #B23502;
     color: white;
+    -webkit-box-shadow: 0 1px 1px 1px black;
     box-shadow: 0 1px 1px 1px black;
 }
 
 /************************ Gallery image grid ************************/
 
 #gallery {
+    -webkit-transition: ease 0.7s;
+    -o-transition: ease 0.7s;
     transition: ease 0.7s;
     width: 82%;
     padding: 20px;
@@ -107,37 +138,57 @@ body {
 }
 
 .row {
+    -webkit-transition: ease 0.7s;
+    -o-transition: ease 0.7s;
     transition: ease 0.7s;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -ms-flex-wrap: wrap;
     flex-wrap: wrap;
     padding: 0 1%;
 }
 
 .column {
+    -webkit-transition: ease 0.7s;
+    -o-transition: ease 0.7s;
     transition: ease 0.7s;
+    -webkit-box-flex: 31%;
+    -ms-flex: 31%;
     flex: 31%;
     padding: 0 1%;
 }
 
 .box {
+    -webkit-transition: ease 0.7s;
+    -o-transition: ease 0.7s;
     transition: ease 0.7s;
     margin-bottom: 6%;
     width: 100%;
+    -webkit-box-shadow: 0 5px 5px black;
     box-shadow: 0 5px 5px black;
     overflow: hidden;
 }
 
 .box img {
     -webkit-transform: translate3d(0, 0, 0);
+    -webkit-filter: brightness(90%) grayscale(0%);
     filter: brightness(90%) grayscale(0%);
     width: 100%;
     vertical-align: middle;
+    -webkit-transition: ease 0.7s;
+    -o-transition: ease 0.7s;
     transition: ease 0.7s;
 }
 
 .box img:hover {
+    -webkit-filter: brightness(105%) grayscale(0);
     filter: brightness(105%) grayscale(0);
+    -webkit-transition: ease 0.7s;
+    -o-transition: ease 0.7s;
     transition: ease 0.7s;
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
     transform: scale(1.1);
     cursor: pointer;
 }
@@ -145,6 +196,8 @@ body {
 /************************ Lightbox ************************/
 
 #lightbox {
+    -webkit-transition: ease 0.7s;
+    -o-transition: ease 0.7s;
     transition: ease 0.7s;
     display: none;
     position: fixed;
@@ -161,6 +214,8 @@ body {
 }
 
 #focus {
+    -webkit-transition: ease 0.7s;
+    -o-transition: ease 0.7s;
     transition: ease 0.7s;
     display: block;
     position: fixed;
@@ -169,12 +224,17 @@ body {
     max-width: 90%;
     max-height: 90%;
     width: auto;
+    -webkit-box-shadow: 0 8px 20px 5px #080808;
     box-shadow: 0 8px 20px 5px #080808;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
 }
 
 #lightbox p {
     position: fixed;
+    -webkit-transition: ease 0.7s;
+    -o-transition: ease 0.7s;
     transition: ease 0.7s;
     width: 100%;
     text-align: center;
@@ -186,7 +246,10 @@ body {
     position: absolute;
     width: 20px;
     height: 60px;
+    -webkit-box-shadow: none;
     box-shadow: none;
+    -webkit-transform: none;
+    -ms-transform: none;
     transform: none;
     display: none; /* DISABLED WHILE IN DEVELOPMENT */
 }
@@ -209,11 +272,16 @@ body {
     max-width: 50px;
     top: 50%;
     right: 3%;
+    -webkit-transform: translate(-50%, 0%);
+    -ms-transform: translate(-50%, 0%);
     transform: translate(-50%, 0%);
 }
 
 .somebutton img {
+    -webkit-filter: brightness(70%) grayscale(20%);
     filter: brightness(70%) grayscale(20%);
+    -webkit-transition: ease 0.6s;
+    -o-transition: ease 0.6s;
     transition: ease 0.6s;
     width: 40px;
     height: 40px;
@@ -222,7 +290,10 @@ body {
 }
 
 .somebutton img:hover {
+    -webkit-filter: brightness(110%) grayscale(0%);
     filter: brightness(110%) grayscale(0%);
+    -webkit-transition: ease 0.6s;
+    -o-transition: ease 0.6s;
     transition: ease 0.6s;
 }
 
@@ -247,12 +318,15 @@ body {
 @media only screen and (max-width: 500px) {
     body, #title {
         display: block;
+        -webkit-transition: ease 0.7s;
+        -o-transition: ease 0.7s;
         transition: ease 0.7s;
     }
 
     /********************** Title **********************/
 
     #title {
+        width: 88%;
         margin: 5px auto;
         margin-bottom: 35px;
     }
@@ -263,7 +337,7 @@ body {
     }
 
     #title h2 {
-        font-size: 13px;
+        font-size: 14px;
     }
 
     /********************** Navigation **********************/
@@ -283,6 +357,8 @@ body {
     }
 
     .catgButton:hover {
+        -webkit-transition: ease 0.7s;
+        -o-transition: ease 0.7s;
         transition: ease 0.7s;
         background-color: #B23502;
         color: white;
@@ -291,30 +367,40 @@ body {
     /********************** Image gallery **********************/
 
     #gallery {
+        -webkit-transition: ease 0.7s;
+        -o-transition: ease 0.7s;
         transition: ease 0.7s;
         width: 100%;
         margin: 30px 0;
-        padding: 0;
+        padding: 0 0 60px 0;
     }
 
     .row {
+        -webkit-transition: ease 0.7s;
+        -o-transition: ease 0.7s;
         transition: ease 0.7s;
         margin: 0;
         padding: 0;
     }
 
     .box {
+        -webkit-transition: ease 0.7s;
+        -o-transition: ease 0.7s;
         transition: ease 0.7s;
         margin: 0;
         margin-bottom: 6%;
     }
 
     .box img {
+        -webkit-filter: brightness(100%) grayscale(0%);
         filter: brightness(100%) grayscale(0%);
     }
 
     .box img:hover {
+        -webkit-filter: brightness(100%) grayscale(0%);
         filter: brightness(100%) grayscale(0%);
+        -webkit-transform: none;
+        -ms-transform: none;
         transform: none;
     }
 
@@ -326,18 +412,24 @@ body {
         max-height: 600px;
     }
 
-
-
     /********************** Social media **********************/
 
     #some {
-        top: 2%;
-        right: 5%;
-        max-width: 35px;
+        -webkit-transform: none;
+        -ms-transform: none;
         transform: none;
+        top: auto;
+        bottom: 1%;
+        right: 1%;
+        width: -webkit-fit-content;
+        width: -moz-fit-content;
+        width: fit-content;
     }
 
     .somebutton img {
+        bottom: 0;
+        margin: 5px 0;
+        -webkit-filter: brightness(100%) grayscale(0%);
         filter: brightness(100%) grayscale(0%);
     }
 }

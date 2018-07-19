@@ -58,7 +58,8 @@ $(document).ready(function() {
 });
 
 /**
- * Appends the images to the gallery - iterates through each of the 3 column for the whole image bunch.
+ * Appends the images to the gallery - iterates through each of the 3 column for the whole image bunch. Finishes off
+ * by activating the button listeners.
  *
  * @param listOfImages:
  * An array containing image links.
@@ -109,12 +110,11 @@ function lightboxClickListener() {
     });
 }
 
+/**
+ * Listens for button clicks, updates the content of the website according to the id tag of the button that was clicked.
+ */
 function buttonClickListener() {
-    $('.catgButton').click(function () {
-        updateContentOnClick(this)
-    });
-
-    $('#about').click(function () {
+    $('.catgButton, #about').click(function () {
         updateContentOnClick(this)
     });
 
@@ -136,8 +136,18 @@ function buttonClickListener() {
     }
 }
 
+/**
+ * Takes a JSON object and scours it for strings. The intention was to recursively check for text for a more generic
+ * function, but it seems that one should be aware of the JSON structure and generics for the sake of it isn't always
+ * necessary I guess.
+ *
+ * @param json
+ * The JSON object fetched from about.json
+ *
+ * @returns {{text: string, cameras: string}}
+ * Returns an object with two key/values, the values being the actual text from the JSON.
+ */
 function formatJSONtoHTML(json) {
-
     var strings = [];
     var camList = [
         '<ul class="aboutText">Cameras'
@@ -163,9 +173,14 @@ function formatJSONtoHTML(json) {
     return {text: strings.join(""), cameras: camList.join("")}
 }
 
+/**
+ * Populates the Gallery html element with an object containing text
+ *
+ * @param about
+ * An object containing the text for HTML
+ */
 function someoneClickedAbout(about) {
     $.each(about, function(item) {
-        console.log(about[item]);
         $('#gallery').append(about[item]);
     });
 }
