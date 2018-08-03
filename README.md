@@ -17,4 +17,4 @@ TODO
 * Misc
   * Add more extensive description check on images (multiple words, no description etc etc)
   * Remember that "mobile first" is a design methodology for a reason
-   * Rewrite CSS to SASS with mobile first
+    * Rewrite CSS to SASS with mobile first
